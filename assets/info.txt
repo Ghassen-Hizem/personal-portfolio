@@ -1,0 +1,1 @@
+responsive dimensions : 960 px
