@@ -9,6 +9,8 @@ html,body{
 }
 .nav-container{
     height: 5rem;
+  background-color: #f4e08a;
+    padding-bottom: 1.5rem;
 }
 .first-container{
     display: grid;
@@ -186,9 +188,12 @@ html,body{
   max-width: 40rem;
 }
  .about-section{
-  margin-top: 5rem;
+
   margin-left: 2rem;
   margin-right: auto;
+  padding-top: 2rem;
+  padding-bottom: 8rem;
+  
  }
   .main-section{
 
@@ -209,9 +214,11 @@ html,body{
     padding-bottom: 1rem;
   }
   .skills-section{
-    margin-left: 4rem;
-    margin-top: 7.5rem;
-    padding-top: 5rem;
+    padding-left: 4rem;
+   
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+    background-color: #EEEBE8;
   }
 .ghz-picture{
   height: 500px;
@@ -369,12 +376,14 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
 }
 
 .question-section{
-  margin-left:  5rem;
-  margin-right: 5rem;
-  margin-top: 13rem;
+  padding-left:  5rem;
+  padding-right: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #EEEBE8;
 
 }
 
@@ -389,7 +398,10 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
   padding-left: 2rem;
   margin-left:  3rem;
   margin-right: 3rem;
-  margin-top: 12rem;
+
+  padding-top: 12rem;
+  padding-bottom: 2rem;
+  
 }
 .totale-image{
   height: 250px;
@@ -421,10 +433,9 @@ background: linear-gradient(to bottom, #ef473a, #cb2d3e);
   justify-content: space-between;
 }
 
-.contact-section{
-  background-color: white;
+.contact-section{ 
   text-align: CENTER;
-  padding-top: 5rem;
+  padding-top: 8rem;
   padding-left: 25rem;
   padding-right: 25rem;
   padding-bottom: 8rem;
