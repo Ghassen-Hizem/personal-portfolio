@@ -1,82 +1,55 @@
-// ——————————————————————————————————————————————————
-// TextScramble
-// ——————————————————————————————————————————————————
+var tl = new TimelineLite(); 
+tl.staggerFrom(".topics", 3, {
+  css:{transform:"scale(0)",top:"60%",left:"50%"},ease:Elastic.easeOut
+}, 0.3);
 
-class TextScramble {
-    constructor(el) {
-      this.el = el
-      this.chars = '!<>-_\\/[]{}—=+*^?#________'
-      this.update = this.update.bind(this)
-    }
-    setText(newText) {
-      const oldText = this.el.innerText
-      const length = Math.max(oldText.length, newText.length)
-      const promise = new Promise((resolve) => this.resolve = resolve)
-      this.queue = []
-      for (let i = 0; i < length; i++) {
-        const from = oldText[i] || ''
-        const to = newText[i] || ''
-        const start = Math.floor(Math.random() * 40)
-        const end = start + Math.floor(Math.random() * 40)
-        this.queue.push({ from, to, start, end })
-      }
-      cancelAnimationFrame(this.frameRequest)
-      this.frame = 0
-      this.update()
-      return promise
-    }
-    update() {
-      let output = ''
-      let complete = 0
-      for (let i = 0, n = this.queue.length; i < n; i++) {
-        let { from, to, start, end, char } = this.queue[i]
-        if (this.frame >= end) {
-          complete++
-          output += to
-        } else if (this.frame >= start) {
-          if (!char || Math.random() < 0.28) {
-            char = this.randomChar()
-            this.queue[i].char = char
-          }
-          output += `<span class="dud">${char}</span>`
-        } else {
-          output += from
-        }
-      }
-      this.el.innerHTML = output
-      if (complete === this.queue.length) {
-        this.resolve()
-      } else {
-        this.frameRequest = requestAnimationFrame(this.update)
-        this.frame++
-      }
-    }
-    randomChar() {
-      return this.chars[Math.floor(Math.random() * this.chars.length)]
-    }
-  }
-  
-  // ——————————————————————————————————————————————————
-  // Example
-  // ——————————————————————————————————————————————————
-  
-  const phrases = [
-    'User Friendly Design',
-    'User Experience',
-    'No Bugs',
-    'Always Learning',
-    'The Best Is Yet To Come'
-  ]
-  
-  const el = document.querySelector('.text')
-  const fx = new TextScramble(el)
-  
-  let counter = 0
-  const next = () => {
-    fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 800)
-    })
-    counter = (counter + 1) % phrases.length
-  }
-  
-  next()
+
+var js = document.getElementById("js");
+var sass = document.getElementById("sass");
+var php = document.getElementById("php");
+var css3 = document.getElementById("css3");
+var hmtl5 = document.getElementById("html5");
+var topics = document.getElementsByClassName("topics");
+
+
+js.addEventListener("mouseover",jsretina,false);
+js.addEventListener("touchstart",jsretina,false);
+html5.addEventListener("mouseover",html5retina,false);
+html5.addEventListener("touchstart",html5retina,false);
+sass.addEventListener("mouseover",sassretina,false);
+sass.addEventListener("touchstart",sassretina,false);
+php.addEventListener("mouseover",phpretina,false);
+php.addEventListener("touchstart",phpretina,false);
+css3.addEventListener("mouseover",css3retina,false);
+css3.addEventListener("touchstart",css3retina,false);
+
+function jsretina(event) {
+	TweenMax.to("#retina", 0.2, {left:"51%",top:"59.5%"});
+}
+
+function html5retina(event) {
+	TweenMax.to("#retina", 0.2, {left:"49%",top:"59.5%"});
+}
+
+function css3retina(event) {
+	TweenMax.to("#retina", 0.2, {left:"49%",top:"60.5%"});
+}
+
+function phpretina(event) {
+	TweenMax.to("#retina", 0.2, {left:"51%",top:"60.5%"});
+}
+
+function sassretina(event) {
+	TweenMax.to("#retina", 0.2, {left:"50%",top:"59%"});
+}
+
+
+for(var i=0; i< topics.length; i++){
+	topics[i].addEventListener("mouseout",retinaout);
+}
+function retinaout(event) {
+		TweenMax.to("#retina", 0.2, {left:"50%",top:"60%"});	
+};
+
+
+
